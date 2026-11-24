@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/registry.json
+packages:
+  - type: github_release
+    repo_owner: antimemeai
+    repo_name: blackbird
+    description: "Blackbird: a programmable C++/Lua coding agent for expert operators, with model-editable workflows, managed context and a harness that develops itself"
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: "true"
+        asset: blackbird-{{.Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
+        format: tar.gz
+        checksum:
+          type: github_release
+          asset: SHA256SUMS.txt
+          algorithm: sha256
+        overrides:
+          - goos: linux
+            replacements:
+              amd64: x86_64
+        supported_envs:
+          - linux/amd64
+          - darwin/arm64
