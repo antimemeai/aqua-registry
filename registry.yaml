@@ -15126,12 +15126,15 @@ packages:
   - type: github_release
     repo_owner: antimemeai
     repo_name: multiplayer_outpost
-    description: Standalone multiplayer.tech Outpost (CLI + MCP stdio server over MP1 + iroh v1.5.0) for non-Blackbird coding agents
+    description: Standalone E2EE P2P sidecar, daemon, and MCP server for multiplayer.tech
     version_constraint: "false"
     version_overrides:
       - version_constraint: "true"
         asset: mp-outpost-{{.Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
         format: tar.gz
+        files:
+          - name: mp-outpost
+            src: "{{.AssetWithoutExt}}/mp-outpost"
         checksum:
           type: github_release
           asset: SHA256SUMS.txt
