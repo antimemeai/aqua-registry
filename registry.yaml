@@ -15126,12 +15126,15 @@ packages:
   - type: github_release
     repo_owner: antimemeai
     repo_name: blackbird
-    description: "Blackbird: a programmable C++/Lua coding agent for expert operators, with model-editable workflows, managed context and a harness that develops itself"
+    description: Native C++23 and Lua coding agent harness and Command Post
     version_constraint: "false"
     version_overrides:
       - version_constraint: "true"
         asset: blackbird-{{.Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
         format: tar.gz
+        files:
+          - name: blackbird
+            src: "{{.AssetWithoutExt}}/scripts/blackbird"
         checksum:
           type: github_release
           asset: SHA256SUMS.txt
