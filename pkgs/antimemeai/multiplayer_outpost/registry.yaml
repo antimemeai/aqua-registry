@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/registry.json
+packages:
+  - type: github_release
+    repo_owner: antimemeai
+    repo_name: multiplayer_outpost
+    description: Standalone multiplayer.tech Outpost (CLI + MCP stdio server over MP1 + iroh v1.5.0) for non-Blackbird coding agents
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: "true"
+        asset: mp-outpost-{{.Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
+        format: tar.gz
+        checksum:
+          type: github_release
+          asset: SHA256SUMS.txt
+          algorithm: sha256
+        overrides:
+          - goos: linux
+            replacements:
+              amd64: x86_64
+        supported_envs:
+          - linux
+          - darwin/arm64
